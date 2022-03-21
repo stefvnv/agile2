@@ -1,6 +1,5 @@
 public class Grading {
 
-    //Format
     public char calculateGrade(int exam, int coursework) throws GradingExceptionHandler {
 
         if (exam < 0 || coursework < 0) {
