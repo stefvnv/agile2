@@ -3,6 +3,9 @@ import junit.framework.TestCase;
 public class LeapTest extends TestCase {
     Leap testObj = new Leap();
 
+
+    //INVALIDS
+
     // Test Number: 1
     // Objective: Test low invalid values
     // Input(s): Year = 999
@@ -29,13 +32,16 @@ public class LeapTest extends TestCase {
         }
     }
 
+
+    //VALIDS
+
     // Test Number: 3
     // Objective: Test low valid values
     // Input(s): Year = 1000
     // Expected Output: false
     public void test_findLeapYear003() {
         try {
-            assertEquals(false, testObj.findLeapYear(1000));
+            assertTrue(testObj.findLeapYear(1000));
         } catch (LeapExceptionHandler e) {
             fail("Test should not reach this line!");
         }
@@ -47,34 +53,34 @@ public class LeapTest extends TestCase {
     // Expected Output: true
     public void test_findLeapYear004() {
         try {
-            assertEquals(true, testObj.findLeapYear(1984));
+            assertTrue(testObj.findLeapYear(10000));
         } catch (LeapExceptionHandler e) {
             fail("Test should not reach this line!");
         }
     }
 
     // Test Number: 5
-    // Objective: Test invalid leap year
+    // Objective: Test high valid Julian leap year
     // Input(s): Year = 1581
     // Expected Output: false
     public void test_findLeapYear005() {
         try {
-            assertEquals(false, testObj.findLeapYear(1581));
+            assertFalse(testObj.findLeapYear(1581));
         } catch (LeapExceptionHandler e) {
             fail("Test should not reach this line!");
         }
     }
 
     // Test Number: 6
-    // Objective: Test valid leap year
+    // Objective: Test low valid Gregorian leap year
     // Input(s): Year = 1581
     // Expected Output: false
     public void test_findLeapYear006() {
         try {
-            assertEquals(false, testObj.findLeapYear(1582));
+            //or assertEquals(false, testObj.findLeapYear(1582));
+            assertFalse(testObj.findLeapYear(1582));
         } catch (LeapExceptionHandler e) {
             fail("Test should not reach this line!");
         }
     }
-
 }
